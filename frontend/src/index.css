@@ -1,0 +1,351 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-background: hsl(var(--background));
+  --color-foreground: hsl(var(--foreground));
+  --color-card: hsl(var(--card));
+  --color-card-foreground: hsl(var(--card-foreground));
+  --color-primary: hsl(var(--primary));
+  --color-primary-foreground: hsl(var(--primary-foreground));
+  --color-secondary: hsl(var(--secondary));
+  --color-secondary-foreground: hsl(var(--secondary-foreground));
+  --color-muted: hsl(var(--muted));
+  --color-muted-foreground: hsl(var(--muted-foreground));
+  --color-accent: hsl(var(--accent));
+  --color-accent-foreground: hsl(var(--accent-foreground));
+  --color-destructive: hsl(var(--destructive));
+  --color-destructive-foreground: hsl(var(--destructive-foreground));
+  --color-border: hsl(var(--border));
+  --color-input: hsl(var(--input));
+  --color-ring: hsl(var(--ring));
+  --radius-lg: var(--radius);
+}
+
+/* Black · Grey · White palette */
+:root {
+  --background: 0 0% 0%;
+  --foreground: 0 0% 100%;
+  --card: 0 0% 7%;
+  --card-foreground: 0 0% 98%;
+  --primary: 0 0% 100%;
+  --primary-foreground: 0 0% 0%;
+  --secondary: 0 0% 14%;
+  --secondary-foreground: 0 0% 96%;
+  --muted: 0 0% 12%;
+  --muted-foreground: 0 0% 72%;
+  --accent: 0 0% 18%;
+  --accent-foreground: 0 0% 98%;
+  --destructive: 0 65% 55%;
+  --destructive-foreground: 0 0% 100%;
+  --border: 0 0% 22%;
+  --input: 0 0% 14%;
+  --ring: 0 0% 80%;
+  --radius: 0.75rem;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+  font-family: "Segoe UI", Inter, system-ui, sans-serif;
+}
+
+#app {
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span,
+label,
+a {
+  color: inherit;
+}
+
+input,
+textarea,
+select {
+  color: hsl(var(--foreground));
+  background: hsl(var(--input));
+  border-color: hsl(var(--border));
+}
+
+input::placeholder,
+textarea::placeholder {
+  color: hsl(var(--muted-foreground));
+}
+
+/* Solid white surfaces always use black text */
+.bg-primary,
+.bg-white {
+  color: #000 !important;
+}
+
+.bg-primary *,
+.bg-white * {
+  color: #000 !important;
+}
+
+.bg-primary svg,
+.bg-white svg {
+  color: #000 !important;
+}
+
+/* Shared utility classes */
+.muted {
+  color: hsl(var(--muted-foreground));
+}
+
+.success {
+  color: hsl(0 0% 88%);
+}
+
+.error {
+  color: hsl(0 70% 68%);
+}
+
+/* Admin panel — dark grey + white text */
+.admin-shell {
+  display: flex;
+  min-height: 100vh;
+  background: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
+
+.admin-sidebar {
+  width: 240px;
+  background: hsl(0 0% 5%);
+  color: hsl(0 0% 98%);
+  padding: 24px 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border-right: 1px solid hsl(var(--border));
+}
+
+.admin-sidebar h2 {
+  margin: 0;
+  font-size: 20px;
+  color: hsl(0 0% 100%);
+}
+
+.admin-user {
+  margin: 0;
+  color: hsl(0 0% 65%);
+  font-size: 14px;
+}
+
+.admin-nav {
+  display: grid;
+  gap: 6px;
+  margin-top: 8px;
+}
+
+.admin-nav a {
+  color: hsl(0 0% 78%);
+  text-decoration: none;
+  padding: 10px 12px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+}
+
+.admin-nav a:hover {
+  background: hsl(0 0% 14%);
+  color: hsl(0 0% 100%);
+}
+
+.admin-nav a.active {
+  background: hsl(0 0% 20%);
+  color: hsl(0 0% 100%);
+}
+
+.admin-sidebar-actions {
+  margin-top: auto;
+  display: grid;
+  gap: 8px;
+}
+
+.admin-sidebar-actions button {
+  width: 100%;
+  background: hsl(0 0% 14%);
+  color: hsl(0 0% 96%);
+  border: 1px solid hsl(var(--border));
+  padding: 10px 14px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.admin-sidebar-actions button:hover {
+  background: hsl(0 0% 22%);
+}
+
+.admin-main {
+  flex: 1;
+  padding: 24px;
+  overflow: auto;
+  color: hsl(0 0% 98%);
+}
+
+.admin-main h1 {
+  color: hsl(0 0% 100%);
+}
+
+.stats-grid {
+  margin-top: 20px;
+  display: grid;
+  gap: 14px;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+}
+
+.stat-card h3 {
+  margin: 0 0 8px;
+  font-size: 14px;
+  color: hsl(0 0% 68%);
+}
+
+.stat-card p {
+  margin: 0;
+  font-size: 28px;
+  font-weight: 700;
+  color: hsl(0 0% 100%);
+}
+
+.admin-form {
+  margin: 20px 0;
+  display: grid;
+  gap: 10px;
+  max-width: 520px;
+}
+
+.admin-table-wrap {
+  margin-top: 20px;
+  overflow-x: auto;
+}
+
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: hsl(0 0% 7%);
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  overflow: hidden;
+  color: hsl(0 0% 92%);
+}
+
+.admin-table th,
+.admin-table td {
+  padding: 12px;
+  border-bottom: 1px solid hsl(0 0% 18%);
+  text-align: left;
+  vertical-align: top;
+}
+
+.admin-table th {
+  background: hsl(0 0% 10%);
+  font-size: 13px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: hsl(0 0% 70%);
+}
+
+.admin-table td small {
+  color: hsl(0 0% 65%);
+}
+
+.table-actions {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.table-actions button {
+  background: hsl(0 0% 16%);
+  color: hsl(0 0% 95%);
+  border: 1px solid hsl(var(--border));
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.table-actions button:hover {
+  background: hsl(0 0% 24%);
+}
+
+.admin-main .card {
+  background: hsl(0 0% 7%);
+  border: 1px solid hsl(var(--border));
+  border-radius: 12px;
+  padding: 16px;
+  color: hsl(0 0% 95%);
+}
+
+.admin-main button.primary {
+  background: hsl(0 0% 100%);
+  color: hsl(0 0% 0%);
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.admin-main .legend span {
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 13px;
+  color: hsl(0 0% 90%);
+}
+
+.admin-main .legend .available {
+  background: hsl(0 0% 22%);
+}
+
+.admin-main .legend .reserved {
+  background: hsl(0 0% 30%);
+}
+
+.admin-main .legend .booked {
+  background: hsl(0 0% 40%);
+}
+
+.role-badge {
+  display: inline-block;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.role-badge.admin {
+  background: hsl(0 0% 28%);
+  color: hsl(0 0% 100%);
+}
+
+.role-badge.user {
+  background: hsl(0 0% 18%);
+  color: hsl(0 0% 88%);
+}
+
+@media (max-width: 768px) {
+  .admin-shell {
+    flex-direction: column;
+  }
+
+  .admin-sidebar {
+    width: 100%;
+  }
+}
