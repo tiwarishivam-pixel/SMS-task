@@ -140,3 +140,10 @@ Frontend default URL: `http://localhost:5173`
 - **Reservation expiry handling:** before reserve/booking, expired reservations are released by resetting reserved seats to `available` and deleting stale reservations.
 - **Privacy model:** occupant names are exposed only at the seat level on event detail pages; there is no public bookings list for regular users.
 - **Session persistence:** JWT stored in localStorage with 7-day expiry (`JWT_EXPIRES_IN` in backend `.env`).
+
+**landing Page -> Events Page -> Reservation & Booking Page**
+<img width="949" height="436" alt="Screenshot 2026-06-18 140901" src="https://github.com/user-attachments/assets/24fddf85-38ef-40a1-8921-8c76f3f5155b" />
+<img width="949" height="434" alt="Screenshot 2026-06-18 140929" src="https://github.com/user-attachments/assets/87ea2421-97c3-4a68-88f8-a90a46e0a3f6" />
+<img width="945" height="428" alt="Screenshot 2026-06-18 141010" src="https://github.com/user-attachments/assets/466c1862-58c4-4729-a7e8-b3756a930934" />
+
+
